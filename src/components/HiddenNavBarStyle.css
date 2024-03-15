@@ -1,0 +1,68 @@
+.hiddenNav {
+  display: none;
+  height: auto;
+  width: 100vw;
+  background-color: rgb(231, 52, 52);
+  flex-direction: column;
+  align-items: center;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.hidden_navbar {
+  width: 100vw;
+  height: 4.5rem;
+  background-color: rgb(218, 218, 218);
+  display: flex;
+  justify-content: space-between;
+  padding-left: 50px;
+  padding-right: 100px;
+}
+
+.flagDiv1 img {
+  padding-top: 5px;
+  width: 3vw;
+  height: 2vw;
+  margin-right: 5px;
+}
+
+.languageDiv1 {
+  display: flex;
+  flex-direction: row;
+}
+
+.logoDiv1 {
+  height: 100%;
+  width: auto;
+}
+
+.logoDiv1 img {
+  height: 100%;
+  width: auto;
+}
+
+.menuBarIcon1 {
+  display: none;
+}
+
+.menuDiv {
+  display: none;
+}
+
+@media screen and (max-width: 1200px) {
+  .toBeHidden {
+    display: none;
+  }
+
+  .menuBarIcon1 {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 770px) {
+
+}

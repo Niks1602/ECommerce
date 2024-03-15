@@ -1,0 +1,97 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.firstDiv{
+    height: 34vw;
+    width: 100vw;
+    background-color: #fffbbc;
+    display: flex;
+    flex-direction: row;
+}
+
+.leftDiv{
+    height: 100%;
+    width: 65%;
+    /* background-color: crimson; */
+    overflow: hidden;
+}
+
+.rightDiv{
+    height: 100%;
+    width: 35%;
+    /* background-color: rgb(104, 76, 82); */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.rights_firstDiv{
+    width: 80%;
+    height:20%;
+    /* background-color: crimson; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1vw; 
+}
+
+.rights_secondDiv{
+    width: 80%;
+    height:70%;
+    /* background-color: crimson; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rights_secondDiv img{
+    height: 100%;
+    width: 100%;
+}
+
+.rights_thirdDiv {
+    padding-left: 10px;
+    width: 80%;
+}
+
+.rights_firstDiv h2{
+    font-size: 180%;
+}
+
+@media screen and (max-width:800px) {
+    .firstDiv{
+        height: 140vw;
+        width: 100vw;
+        background-color: #f5ec6e;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .leftDiv{
+        height: 100%;
+        width: 100%;
+        /* background-color: crimson; */
+        overflow: hidden;
+    }
+    
+    .rightDiv{
+        height: 100%;
+        width: 100%;
+        /* background-color: rgb(104, 76, 82); */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .rights_firstDiv{
+        font-size: 2.5vw; 
+    }
+    .rights_firstDiv h2{
+        font-size: 180%;
+    }
+}

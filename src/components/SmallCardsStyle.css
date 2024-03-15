@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.secondDivCard1 {
+  width: 21vw;
+  height: 28vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.imgDiv1 {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+}
+
+.imgDiv1 img {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px 6px 0px 0px;
+}
+
+.itemInfo1 {
+  width: 100%;
+  height: 6vw;
+  background-color: rgb(228, 236, 230);
+  border-radius: 0px 0px 6px 6px;
+  padding-left: 20px;
+  padding-top: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 1.2vw;
+
+}
+
+.itemInfo1 h4{
+    font-size: 80%;
+}
+.itemInfo1 h6{
+    font-size: 80%;
+}
+
+.itemInfo1 div {
+    font-size: 80%;
+}
+
+ @media screen and (max-width:1000px) and (min-width: 660px){
+  .secondDivCard1 {
+    width: 42vw;
+    height: 56vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+}
+
+@media screen and (max-width: 660px) {
+  .secondDivCard1 {
+    width: 84vw;
+    height: 112vw;
+  }
+  .itemInfo1 {
+    height: 24vw;
+    font-size: 4.5vw;
+}
+} 

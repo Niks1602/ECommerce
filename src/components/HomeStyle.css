@@ -1,0 +1,91 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.secondDiv {
+  width: 100vw;
+  height: 38vw;
+  background-color: rgb(202, 228, 230);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-left: 7vw;
+  padding-right: 7vw;
+}
+
+.thirdDiv {
+  width: 100vw;
+  height: 45rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: grey;
+  /* background-color: rgb(154, 216, 190); */
+}
+
+.headind1 {
+  width: 100vw;
+  height: 8.3rem;
+  display: flex;
+  align-items: center;
+  padding-left: 11vw;
+  padding-top: 3vw;
+  background-color: rgb(202, 228, 230);
+}
+
+.lastDiv {
+  display: flex;
+  justify-content: center;
+  color: white;
+  background-color: black;
+  font-size: 2vw;
+}
+
+.lastDiv h4 {
+  font-size: 80%;
+}
+
+.hiddenNavbar {
+  width: 30rem;
+  height: 30rem;
+  background-color: aqua;
+  position: absolute;
+  z-index: 2;
+}
+
+@media screen and (max-width: 660px) {
+  .thirdDiv {
+    height: 75rem;
+  }
+
+  .smallCardsParentDiv {
+    background-color: rgb(137, 224, 134);
+    height: 465vw;
+    display: grid;
+    grid-template-columns: 84vw;
+    grid-template-rows: 112vw 112vw 112vw 112vw;
+    grid-row-gap: 20px;
+  }
+
+  .bigCardsDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 250vw;
+    background-color: rgb(247, 199, 244);
+  }
+}
+
+@media screen and (max-width: 1000px) and (min-width: 660px) {
+  .smallCardsParentDiv {
+    height: 120vw;
+    display: grid;
+    grid-template-columns: 42vw 42vw;
+    grid-template-rows: 56vw 56vw;
+    grid-row-gap: 30px;
+    grid-column-gap: 20px;
+  }
+}

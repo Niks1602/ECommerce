@@ -1,0 +1,61 @@
+.Container {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 500;
+  justify-content: center;
+  backdrop-filter: blur(15px);
+  position: fixed;
+}
+
+.logInContainer {
+  margin-top: 20px;
+  padding-top: 15px;
+  width: 20rem;
+  height: 26rem;
+  background-color: rgb(245, 247, 245);
+  border-radius: 6px;
+  padding-left: 25px;
+}
+
+.containerInput {
+  padding-left: 10px;
+  font-size: 13px;
+  border-radius: 4px;
+  width: 90%;
+  height: 30px;
+}
+
+.logInContainer button,
+.registerPageContainer button {
+  width: 90%;
+  height: 30px;
+  margin-top: 10px;
+  line-height: 15px;
+}
+
+.logInContainer p,
+.registerPageContainer p {
+  font-size: 12px;
+}
+
+.logInContainer h6,
+.registerPageContainer h6 {
+  font-size: 12px;
+  color: #0066c0;
+  cursor: pointer;
+}
+
+.registerPageContainer {
+  margin-top: 20px;
+  padding-top: 15px;
+  width: 20rem;
+  height: 36rem;
+  background-color: rgb(245, 247, 245);
+  border-radius: 6px;
+  padding-left: 25px;
+}
+
+.registerPageContainer input {
+  margin-bottom: 10px;
+}

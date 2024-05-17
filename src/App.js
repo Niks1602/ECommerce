@@ -11,14 +11,19 @@ import { Routes, Route } from "react-router-dom";
 import Cart from "./Cart Page/Cart";
 import Home from "./components/Home";
 import FilterSort from "./FilterPages/FilterSort";
+import ProductInfo from "./ProductInfoPage/ProductInfo";
+import { Theme } from '@radix-ui/themes';
+import Proceedtopay from "./ProceedToPay/ProceedToPay";
 
 function App() {
   return (
     <>
       <Routes>
-      <Route path="/" element={<Home />}></Route>
+        <Route path="/" element={<Home />}></Route>
         <Route path="/cart" element={<Cart />}></Route>
         <Route path="/filtersort" element={<FilterSort />}></Route>
+        <Route path="/productinfo" element={<ProductInfo/>}></Route>
+        <Route path="/proceedtopay" element={<Proceedtopay/>}></Route>
       </Routes>
     </>
   );

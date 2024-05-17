@@ -1,4 +1,6 @@
 import React from "react";
+import ProceedToPay from "../ProceedToPay/ProceedToPay";
+import ProductInfo from "../ProductInfoPage/ProductInfo";
 import Cards from "./Cards";
 import FirstDiv from "./FirstDiv";
 import Footer from "./Footer";
@@ -11,11 +13,8 @@ const Home = () => {
   const arr = [];
   return (
     <>
-      {/* <SideNavBar/> */}
       <NavBar />
-      {/* <HiddenNavBar /> */}
       <NavBar2 />
-
       <FirstDiv />
       <div className="headind1">
         <br />
@@ -42,15 +41,33 @@ const Home = () => {
         <h1>Our Latest Arrivals.</h1>
       </div>
       <div className="secondDiv">
-        <Cards id={4} imageLink="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/71a00703e8c14c76aa8471445a9eaf40_9366/Ultrabounce_Shoes_Blue_HP5783_HM1.jpg" />
-        <Cards id={5} imageLink="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/71a00703e8c14c76aa8471445a9eaf40_9366/Ultrabounce_Shoes_Blue_HP5783_HM1.jpg" />
-        <Cards id={6} imageLink="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/71a00703e8c14c76aa8471445a9eaf40_9366/Ultrabounce_Shoes_Blue_HP5783_HM1.jpg" />
+        <Cards
+          id={4}
+          imageLink="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/71a00703e8c14c76aa8471445a9eaf40_9366/Ultrabounce_Shoes_Blue_HP5783_HM1.jpg"
+        />
+        <Cards
+          id={5}
+          imageLink="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/71a00703e8c14c76aa8471445a9eaf40_9366/Ultrabounce_Shoes_Blue_HP5783_HM1.jpg"
+        />
+        <Cards
+          id={6}
+          imageLink="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/71a00703e8c14c76aa8471445a9eaf40_9366/Ultrabounce_Shoes_Blue_HP5783_HM1.jpg"
+        />
       </div>
 
       <div className="secondDiv">
-        <Cards id={7} imageLink="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/71a00703e8c14c76aa8471445a9eaf40_9366/Ultrabounce_Shoes_Blue_HP5783_HM1.jpg" />
-        <Cards id={8} imageLink="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/71a00703e8c14c76aa8471445a9eaf40_9366/Ultrabounce_Shoes_Blue_HP5783_HM1.jpg" />
-        <Cards id={9} imageLink="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/71a00703e8c14c76aa8471445a9eaf40_9366/Ultrabounce_Shoes_Blue_HP5783_HM1.jpg" />
+        <Cards
+          id={7}
+          imageLink="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/71a00703e8c14c76aa8471445a9eaf40_9366/Ultrabounce_Shoes_Blue_HP5783_HM1.jpg"
+        />
+        <Cards
+          id={8}
+          imageLink="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/71a00703e8c14c76aa8471445a9eaf40_9366/Ultrabounce_Shoes_Blue_HP5783_HM1.jpg"
+        />
+        <Cards
+          id={9}
+          imageLink="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/71a00703e8c14c76aa8471445a9eaf40_9366/Ultrabounce_Shoes_Blue_HP5783_HM1.jpg"
+        />
       </div>
 
       <div className="secondDiv smallCardsParentDiv">

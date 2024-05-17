@@ -1,0 +1,28 @@
+.productInfoDiv{
+    height: 80vh;
+    width: 100vw;
+    background-color: rgb(235, 215, 215);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgDiv1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(224, 218, 204);
+    height: 80%;
+}
+.infoDiv1{
+    width: 30vw;
+    height: 90%;
+    background-color: rgb(224, 218, 204);
+    padding: 0px 30px 30px 30px;
+}
+.infoDiv1 h5{
+    height: auto;
+}
+
+
+

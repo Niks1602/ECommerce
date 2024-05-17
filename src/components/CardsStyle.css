@@ -1,51 +1,68 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-.secondDivCard{
-    width: 30%;
-    height: 90%;
-    display: flex;
-    flex-direction: column;
-}
-
-.imgDiv{
- width: 100%;
- height: 75%;
- border-radius: 6px;
+.secondDivCard {
+  width: 30%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
 }
 
-.imgDiv img{
-    width: 100%;
-    height: 100%;
-    border-radius: 6px 6px 0px 0px;
+.imgDiv {
+  width: 100%;
+  height: 75%;
+  border-radius: 6px;
 }
 
-.itemInfo{
-    color: aliceblue;
-    width: 100%;
-    height: 25%;
-    background-color: #78737b;
-    border-radius: 0px 0px 6px 6px;
-    padding-left: 20px;
-    font-size: 1vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+.imgDiv img {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px 6px 0px 0px;
 }
 
-.itemInfo h3, h5{
-    font-size: 150%;
+.itemInfo {
+  color: aliceblue;
+  width: 100%;
+  height: 25%;
+  background-color: #78737b;
+  border-radius: 0px 0px 6px 6px;
+  padding-left: 20px;
+  font-size: 1vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
-.itemInfo h3, h5{
-    height: 18%;
+.itemInfo h3,
+h5 {
+  font-size: 150%;
+}
+
+.itemInfo h3,
+h5 {
+  height: 18%;
+}
+.addToCartDiv1 {
+  font-weight: bold;
+  width: 100%;
+  background-color: white;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+  height: 60px;
+}
+
+.addToCartDiv1:hover {
+  background-color: black;
+  color: blanchedalmond;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 660px) {
-    .secondDivCard{
-        width: 75%;
-        height: auto;
-    }
-}  
+  .secondDivCard {
+    width: 75%;
+    height: auto;
+  }
+}

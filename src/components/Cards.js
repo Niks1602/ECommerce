@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "./CardsStyle.css";
 import CARTARRAY from "../Cart Page/CartArray";
 import data from "../data";
 
 export default function Cards({ id, imagLink }) {
+  const[cartState, changeCartState] = useState(data[id].cartStatus)
   const addToCart = () => {
     let ID = id;
+    if(!CARTARRAY.includes(ID))
     CARTARRAY.push(ID);
+    data[id].cartStatus = 'In the Cart'
+    changeCartState(data[id].cartStatus)
+    
   };
 
   return (
@@ -27,9 +32,10 @@ export default function Cards({ id, imagLink }) {
           <i class="fa-regular fa-star fa-xl"></i>
         </div>
       </div>
-      <div className="addToCartDiv1" onClick={addToCart}>
-        Add To Cart
+      <div className="addToCartDiv1 a" onClick={addToCart}>
+        {cartState}
       </div>
     </div>
+    
   );
 }

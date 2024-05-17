@@ -1,6 +1,10 @@
 .nav-item a{
 font-weight: bold;
 }
+.filterIcon{
+    margin-top: 20px;
+    margin-left: 60px;
+}
 
 @media screen and (max-width: 1200px) {
     .secondNavBar{

@@ -11,7 +11,7 @@
     display: grid;
     grid-template-columns: 20vw 20vw 20vw 20vw;
     grid-template-rows: 20rem 20rem;
-    z-index: 1;
+
 }
 
 .footerDiv div{

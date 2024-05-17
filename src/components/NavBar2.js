@@ -21,9 +21,17 @@ export default function NavBar2() {
                   Todays Deal
                 </a>
               </li>
-              <Link to="/filtersort">
+              <Link to="/filtersort" style={{ textDecoration: "none" }}>
                 <li className="nav-item">
                   <a className="nav-link">Mobile</a>
+                </li>
+              </Link>
+              <Link to="/filtersort" style={{ textDecoration: "none" }}>
+                <li className="nav-item">
+                  <a className="nav-link">
+                    <i class="fa-solid fa-filter fa-lg"></i>filter by your
+                    choice
+                  </a>
                 </li>
               </Link>
 

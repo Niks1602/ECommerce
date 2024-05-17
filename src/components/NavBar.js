@@ -2,14 +2,18 @@ import React, { useState } from "react";
 import SignUp from "../SignUp_Login_Page/SignUp";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
+import data from "../data";
+import searchedItemId from "./SearchedItemID";
 
 export default function NavBar() {
   const [sidebarDisplayStyle, changeSidebarDisplayStyle] = useState("none");
   const [loginPageDisplayStyle, changeloginPageDisplayStyle] = useState("none");
+  const [serchedItems, changeSearchedItems] = useState([]);
 
   function displaySideBar() {
     changeSidebarDisplayStyle("flex");
   }
+
   function hideSideBar() {
     changeSidebarDisplayStyle("none");
   }
@@ -22,6 +26,37 @@ export default function NavBar() {
     changeloginPageDisplayStyle("none");
   }
 
+  const searchProducts = (event) => {
+    // event.preventDefault();
+    // data.map((item) => {
+    //   if (item.name.indexOf("Shoes") !== -1)
+    //     changeSearchedItems((prev) => {
+    //       const updatedFilterCategory = [...prev, item];
+    //       return updatedFilterCategory;
+    //     });
+    // });
+
+    event.preventDefault();
+
+    const searchTerm = event.target.form[0].value;
+    if (searchTerm.length === 0) {
+      changeSearchedItems([]);
+    }
+
+    if (searchTerm.length !== 0) {
+      const filteredItems = data.filter((item) =>
+        item.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      changeSearchedItems(filteredItems);
+    }
+  };
+  
+
+  const changeSearchedItemId = (id) => {
+    searchedItemId[0] = id
+    console.log("searchedItemId =" + searchedItemId[0])
+    // return searchedItemId;
+  };
   return (
     <div>
       <SignUp
@@ -61,7 +96,11 @@ export default function NavBar() {
       <nav className="navbar">
         {/* ************ */}
         <div className="logoDiv">
-          <img src="logo192.png" alt="" />
+          <img
+            src="https://ecart.com/assets/images/logos/logo-ecart.svg"
+            alt=""
+            style={{ width: "80px" }}
+          />
         </div>
 
         <div className="gpsLocation toBeHidden">
@@ -78,8 +117,13 @@ export default function NavBar() {
                 type="search"
                 placeholder="Search for Products, Brands and More"
                 aria-label="Search"
+                onChange={searchProducts}
               />
-              <button className="btn btn-outline-success" type="submit">
+              <button
+                className="btn btn-outline-success"
+                type="submit"
+                onClick={searchProducts}
+              >
                 Search
               </button>
             </form>
@@ -130,10 +174,10 @@ export default function NavBar() {
         </div>
         {/* ************ */}
         <div className="addToCartDiv toBeHidden">
-          <Link to="/Cart">
+          <Link to="/Cart" style={{ textDecoration: "none", color: "black" }}>
             <h6>
               <i className="fa-solid fa-cart-shopping fa-2xl"></i>
-              Add to Cart
+              My Cart
             </h6>
           </Link>
         </div>
@@ -142,6 +186,20 @@ export default function NavBar() {
           <i className="fa-solid fa-bars fa-2xl"></i>
         </div>
       </nav>
+      <div className="searchedItems">
+        {serchedItems.map((item) => {
+          return (
+            <Link
+              to="/productinfo"
+              onClick={() => changeSearchedItemId(item.id)}
+              key={item.id}
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <div>{item.name}</div>
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 }

@@ -27,9 +27,28 @@
   margin-top: 40px;
 }
 
-.cartItem img {
+.cartItem div {
   height: 100%;
-  width: auto;
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#NamePrice1{
+  width: 32%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 3%;
+  height: auto;
+}
+
+.cartItem div img {
+  height: auto;
+  width: 100%;
 }
 
 .addToCartDiv1 {
@@ -42,7 +61,7 @@
   align-items: center;
 }
 
-.cartItem button {
+.cartItem div button {
   width: 200px;
   height: 30px;
   background-color: rgb(255, 85, 85);
@@ -50,6 +69,7 @@
   border-width: 0.0625rem;
   border-radius: 0.1875rem;
   color: white;
+  text-align: center;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
@@ -74,4 +94,60 @@
   color: white;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+@media (max-width: 1400px){
+  #NamePrice1 {
+    width: 22%;
+    padding-left: 3%;
+    
+  }
+}
+
+@media (max-width: 900px) {
+  .cartContainer {
+    width: 45vw;
+  }
+
+  .cartItem {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .cartItem div {
+    width: 50%;
+    text-align: center;
+  }
+
+  #NamePrice1 {
+    padding-left: 0;
+  }
+}
+
+/* Styles for extra small screens (e.g., mobile phones) */
+@media (max-width: 480px) {
+  .cartContainer {
+    padding: 15px;
+    margin-top: 50px;
+    margin-bottom: 150px;
+  }
+
+  .cartItem {
+    height: auto;
+    margin-top: 20px;
+  }
+
+  .cartItem div {
+    width: 100%;
+  }
+
+  .cartItem div img {
+    width: 70%;
+    margin: auto;
+  }
+
+  .cartItem div button {
+    width: 150px;
+    height: 25px;
+  }
 }

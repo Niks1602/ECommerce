@@ -7,69 +7,62 @@ import CARTARRAY from "../Cart Page/CartArray";
 import FilterSortStyle from "./FilterSortStyle.css";
 import { Link } from "react-router-dom";
 import InfoPageID from "../InfoPageID/InfoPageID";
-import * as RadioGroup from '@radix-ui/react-radio-group';
+import * as RadioGroup from "@radix-ui/react-radio-group";
 
-const fArray = ["all"];
 let maxVal = 10000000;
 let minVal = 0;
+const AllCategoryArray = ["Mobile", "Home", "Footwear", "tools", "clothes"];
 
 const FilterSort = () => {
-  const [filterCategory, changefilterCategory] = useState(fArray);
-  const [minValue, changeMinValue] = useState(minVal);
-  const [maxValue, changeMaxValue] = useState(maxVal);
-  const [allItemsMode, changeAllItemsMode] = useState(true);
-  const [productData, changeProductData] = useState(data);
-  let count = 0;
+  const [filterCategory, setFilterCategory] = useState([]);
+  const [minValue, setMinValue] = useState(minVal);
+  const [maxValue, setMaxValue] = useState(maxVal);
+  const [allItemsMode, setAllItemsMode] = useState(true);
+  const [productData, setProductData] = useState(data);
 
   useEffect(() => {
     console.log("useEffect Called");
-    changefilterCategory(fArray);
+    setFilterCategory(AllCategoryArray);
   }, []);
 
-  const filterProducts = (FilterCategory, modeNumber) => {
-    if (FilterCategory !== "all" && modeNumber === 1) {
-      changeAllItemsMode(false);
-    }
+  const filterProducts = (FilterCategory, event) => {
+    let updatedCategories = [...filterCategory];
 
-    console.log("filterCategory.length " + filterCategory.length);
-    console.log("filterCategory " + filterCategory);
-    if (modeNumber === 1) {
-      changefilterCategory((prevFilterCategory) => {
-        if (prevFilterCategory.includes("all")) {
-          prevFilterCategory = prevFilterCategory.filter(
-            (category) => category !== "all"
-          );
-        }
-        const updatedFilterCategory = [...prevFilterCategory, FilterCategory];
-        return updatedFilterCategory;
-      });
+    if (FilterCategory === "all") {
+      if (event.target.checked) {
+        updatedCategories = AllCategoryArray;
+        setAllItemsMode(true);
+      } else {
+        updatedCategories = [];
+        setAllItemsMode(false);
+      }
     } else {
-      changefilterCategory((prevFilterCategory) => {
-        const updatedFilterCategory = prevFilterCategory.filter(
+      if (event.target.checked) {
+        updatedCategories.push(FilterCategory);
+        if (updatedCategories.length === AllCategoryArray.length) {
+          setAllItemsMode(true);
+        } else {
+          setAllItemsMode(false);
+        }
+      } else {
+        updatedCategories = updatedCategories.filter(
           (category) => category !== FilterCategory
         );
-        if (updatedFilterCategory.length === 0) {
-          changeAllItemsMode(true);
-          changefilterCategory(["all"]);
-        }
-        return updatedFilterCategory;
-      });
+        setAllItemsMode(false);
+      }
     }
 
-    console.log("filterCategory2 " + filterCategory);
+    setFilterCategory(updatedCategories);
   };
 
   const changeMinMaxValue = (min, max) => {
-    minVal = min;
-    maxVal = max;
-    changeMinValue(min);
-    changeMaxValue(max);
+    setMinValue(min);
+    setMaxValue(max);
   };
 
   const addToCart = (id) => {
-    let ID = id;
-    if (!CARTARRAY.includes(ID)) CARTARRAY.push(ID);
-    changeProductData(productData);
+    if (!CARTARRAY.includes(id)) CARTARRAY.push(id);
+    setProductData([...productData]);
   };
 
   const changeInfoPageID = (id) => {
@@ -90,209 +83,138 @@ const FilterSort = () => {
             <div className="selectCategoryDiv">
               <h6>Select Category</h6>
             </div>
-            
-            <div class="form-check">
+
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="checkbox"
-                value=""
-                id="flexCheckDefault"
-                onChange={(e) =>
-                  e.target.checked
-                    ? filterProducts("all", 1)
-                    : filterProducts("all", 2)
-                }
+                id="flexCheckDefaultAll"
                 checked={allItemsMode}
+                onChange={(event) => filterProducts("all", event)}
               />
-              <label class="form-check-label" for="flexCheckDefault">
+              <label className="form-check-label" htmlFor="flexCheckDefaultAll">
                 All Items
               </label>
             </div>
 
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="flexCheckDefault"
-                onChange={(e) =>
-                  e.target.checked
-                    ? filterProducts("Mobile", 1)
-                    : filterProducts("Mobile", 2)
-                }
-              />
-              <label class="form-check-label" for="flexCheckDefault">
-                Mobiles phones
-              </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="flexCheckDefault"
-                onChange={(e) =>
-                  e.target.checked
-                    ? filterProducts("Home", 1)
-                    : filterProducts("Home", 2)
-                }
-              />
-              <label class="form-check-label" for="flexCheckDefault">
-                Home and grocery
-              </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="flexCheckDefault"
-                onChange={(e) =>
-                  e.target.checked
-                    ? filterProducts("Footwear", 1)
-                    : filterProducts("Footwear", 2)
-                }
-              />
-              <label class="form-check-label" for="flexCheckDefault">
-                Footwears
-              </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="flexCheckDefault"
-                onChange={(e) =>
-                  e.target.checked
-                    ? filterProducts("tools", 1)
-                    : filterProducts("tools", 2)
-                }
-              />
-              <label class="form-check-label" for="flexCheckDefault">
-                Tools and Instruments
-              </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="flexCheckDefault"
-                onChange={(e) =>
-                  e.target.checked
-                    ? filterProducts("clothes", 1)
-                    : filterProducts("clothes", 2)
-                }
-              />
-              <label class="form-check-label" for="flexCheckDefault">
-                Cloths
-              </label>
-            </div>
+            {AllCategoryArray.map((category) => (
+              <div className="form-check" key={category}>
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  id={`flexCheckDefault${category}`}
+                  checked={filterCategory.includes(category)}
+                  onChange={(event) => filterProducts(category, event)}
+                />
+                <label
+                  className="form-check-label"
+                  htmlFor={`flexCheckDefault${category}`}
+                >
+                  {category}
+                </label>
+              </div>
+            ))}
 
             <br />
 
             <div>
-              <h6>Filter Based on Price</h6>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="flexCheckDefault"
-                onChange={(e) =>
-                  e.target.checked
-                    ? changeMinMaxValue(15000, 100000)
-                    : changeMinMaxValue(0, 100000)
-                }
-              />
-              <label class="form-check-label" for="flexCheckDefault">
-                More than Rs. 15000
-              </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="flexCheckDefault"
-                onChange={(e) =>
-                  e.target.checked
-                    ? changeMinMaxValue(10000, 15000)
-                    : changeMinMaxValue(0, 100000)
-                }
-              />
-              <label class="form-check-label" for="flexCheckDefault">
-                Rs. 10000 to Rs. 15000
-              </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="flexCheckDefault"
-                onChange={(e) =>
-                  e.target.checked
-                    ? changeMinMaxValue(7500, 10000)
-                    : changeMinMaxValue(0, 100000)
-                }
-              />
-              <label class="form-check-label" for="flexCheckDefault">
-                Rs. 7500 to Rs. 10000
-              </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="flexCheckDefault"
-                onChange={(e) =>
-                  e.target.checked
-                    ? changeMinMaxValue(5000, 7500)
-                    : changeMinMaxValue(0, 100000)
-                }
-              />
-              <label class="form-check-label" for="flexCheckDefault">
-                Rs. 5000 to Rs. 7500
-              </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="flexCheckDefault"
-                onChange={(e) =>
-                  e.target.checked
-                    ? changeMinMaxValue(3000, 5000)
-                    : changeMinMaxValue(0, 100000)
-                }
-              />
-              <label class="form-check-label" for="flexCheckDefault">
-                Rs. 3000 to Rs. 5000
-              </label>
-            </div>
-
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="flexCheckDefault"
-                onChange={(e) =>
-                  e.target.checked
-                    ? changeMinMaxValue(2000, 3000)
-                    : changeMinMaxValue(0, 100000)
-                }
-              />
-              <label class="form-check-label" for="flexCheckDefault">
-                Rs. 2000 to Rs. 3000
-              </label>
-            </div>
+            <h6>Filter Based on Price</h6>
           </div>
+          <div className="form-check">
+            <input
+              className="form-check-input"
+              type="checkbox"
+              id="flexCheckDefaultPrice1"
+              onChange={(e) =>
+                e.target.checked
+                  ? changeMinMaxValue(15000, 100000)
+                  : changeMinMaxValue(0, 100000)
+              }
+            />
+            <label className="form-check-label" htmlFor="flexCheckDefaultPrice1">
+              More than Rs. 15000
+            </label>
+          </div>
+          <div className="form-check">
+            <input
+              className="form-check-input"
+              type="checkbox"
+              id="flexCheckDefaultPrice2"
+              onChange={(e) =>
+                e.target.checked
+                  ? changeMinMaxValue(10000, 15000)
+                  : changeMinMaxValue(0, 100000)
+              }
+            />
+            <label className="form-check-label" htmlFor="flexCheckDefaultPrice2">
+              Rs. 10000 to Rs. 15000
+            </label>
+          </div>
+          <div className="form-check">
+            <input
+              className="form-check-input"
+              type="checkbox"
+              id="flexCheckDefaultPrice3"
+              onChange={(e) =>
+                e.target.checked
+                  ? changeMinMaxValue(7500, 10000)
+                  : changeMinMaxValue(0, 100000)
+              }
+            />
+            <label className="form-check-label" htmlFor="flexCheckDefaultPrice3">
+              Rs. 7500 to Rs. 10000
+            </label>
+          </div>
+          <div className="form-check">
+            <input
+              className="form-check-input"
+              type="checkbox"
+              id="flexCheckDefaultPrice4"
+              onChange={(e) =>
+                e.target.checked
+                  ? changeMinMaxValue(5000, 7500)
+                  : changeMinMaxValue(0, 100000)
+              }
+            />
+            <label className="form-check-label" htmlFor="flexCheckDefaultPrice4">
+              Rs. 5000 to Rs. 7500
+            </label>
+          </div>
+          <div className="form-check">
+            <input
+              className="form-check-input"
+              type="checkbox"
+              id="flexCheckDefaultPrice5"
+              onChange={(e) =>
+                e.target.checked
+                  ? changeMinMaxValue(3000, 5000)
+                  : changeMinMaxValue(0, 100000)
+              }
+            />
+            <label className="form-check-label" htmlFor="flexCheckDefaultPrice5">
+              Rs. 3000 to Rs. 5000
+            </label>
+          </div>
+          <div className="form-check">
+            <input
+              className="form-check-input"
+              type="checkbox"
+              id="flexCheckDefaultPrice6"
+              onChange={(e) =>
+                e.target.checked
+                  ? changeMinMaxValue(2000, 3000)
+                  : changeMinMaxValue(0, 100000)
+              }
+            />
+            <label className="form-check-label" htmlFor="flexCheckDefaultPrice6">
+              Rs. 2000 to Rs. 3000
+            </label>
+          </div>
+          </div>
+
+          <br />
+
+          
         </div>
 
         <div className="cartPageContainer1">
@@ -301,17 +223,14 @@ const FilterSort = () => {
           </div>
 
           <div className="cartContainer1">
-            {productData.map((item) => {
+            {productData.map((item, index) => {
               return (
-                ((filterCategory.includes(item.category) &&
-                  item.price > minValue &&
-                  item.price < maxValue) ||
-                  (filterCategory.includes("all") &&
-                    item.price > minValue &&
-                    item.price < maxValue)) && (
-                  <div className="cartItem1">
+                filterCategory.includes(item.category) &&
+                item.price > minValue &&
+                item.price < maxValue && (
+                  <div className="cartItem1" key={item.id}>
                     <div style={{ width: "8%" }}>
-                      <h5>{++count}</h5>
+                      <h5>{index + 1}</h5>
                     </div>
 
                     <div className="imageDiv">
@@ -321,26 +240,26 @@ const FilterSort = () => {
                       <h5>{item.name}</h5>
                       <h6>{item.price}</h6>
                     </div>
-                    <div class="buttonsDiv">
+                    <div className="buttonsDiv">
                       <Link to="/proceedtopay">
                         <button
                           style={{ backgroundColor: "#ffc107", color: "black" }}
                           onClick={() => changeInfoPageID(item.id)}
-                          class="buttons"
+                          className="buttons"
                         >
                           Proceed to Buy
                         </button>
                       </Link>
                     </div>
                     <br />
-                    <div class="buttonsDiv">
+                    <div className="buttonsDiv">
                       <button
                         onClick={() => {
                           item.cartStatus = "In the Cart";
-                          return addToCart(item.id - 1);
+                          addToCart(item.id - 1);
                         }}
                         style={{ backgroundColor: "#ffc107", color: "black" }}
-                        class="buttons"
+                        className="buttons"
                       >
                         {item.cartStatus}
                       </button>

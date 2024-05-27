@@ -81,8 +81,9 @@ const FilterSort = () => {
         <div className="filterSortMenu1">
           <div className="subfilterSortMenu1">
             <div className="selectCategoryDiv">
-              <h6>Select Category</h6>
+              <h6>Select Category from bellow</h6>
             </div>
+
 
             <div className="form-check">
               <input
